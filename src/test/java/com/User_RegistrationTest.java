@@ -9,13 +9,20 @@ public class User_RegistrationTest {
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
         User_Registration validation = new User_Registration();
         boolean result = validation.validateFirstName("Sanket");
-        Assertions.assertEquals(true,result);
+        Assertions.assertTrue(result);
     }
 
     @Test
     public void givenLastName_WhenProper_ShouldReturnTrue() {
         User_Registration validation = new User_Registration();
         boolean result = validation.validateLastName("Bagde");
-        Assertions.assertEquals(true,result);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        User_Registration validation = new User_Registration();
+        boolean result = validation.validateEmail("sanketbagde@gmail.com");
+        Assertions.assertTrue(result);
     }
 }

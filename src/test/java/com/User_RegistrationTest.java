@@ -25,4 +25,9 @@ public class User_RegistrationTest {
         boolean result = validation.validateEmail("sanketbagde@gmail.com");
         Assertions.assertTrue(result);
     }
+    @Test
+    public void givenContact_WhenProper_ShouldReturnTrue() {
+        User_Registration validation = new User_Registration();
+        boolean result = validation.validateContact("91 8879876091");
+    }
 }

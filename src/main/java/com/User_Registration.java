@@ -1,5 +1,6 @@
 package com;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class User_Registration {
@@ -12,27 +13,47 @@ public class User_Registration {
     public static void main(String[] args){
         System.out.println("..###..Welcome to User Registration Program..###..");
     }
-    public boolean validateFirstName(String firstname) {
+    public String validateFirstName(String firstname) {
         Pattern pattern = Pattern.compile(FIRST_LAST_NAME_PATTERN);
-        return pattern.matcher(firstname).matches();
+        if(pattern.matcher(firstname).matches()){
+            return "Valid";
+        }
+        else
+            return "NotValid";
     }
-    public boolean validateLastName(String lastname) {
+    public String validateLastName(String lastname) {
         Pattern pattern = Pattern.compile(FIRST_LAST_NAME_PATTERN);
-        return pattern.matcher(lastname).matches();
+        if(pattern.matcher(lastname).matches()){
+            return "Valid";
+        }
+        else
+            return "NotValid";
     }
 
-    public boolean validateEmail(String email) {
+    public String validateEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        return pattern.matcher(email).matches();
+        if(pattern.matcher(email).matches()){
+            return "Valid";
+        }
+        else
+            return "NotValid";
     }
 
-    public boolean validateContact(String contactnumber) {
+    public String validateContact(String contactnumber) {
         Pattern pattern = Pattern.compile(CONTACT_NUMBER_PATTERN);
-        return pattern.matcher(contactnumber).matches();
+        if(pattern.matcher(contactnumber).matches()){
+            return "Valid";
+        }
+        else
+            return "NotValid";
     }
 
-    public boolean validatePassword(String password) {
+    public String validatePassword(String password) {
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        return pattern.matcher(password).matches();
+        if(pattern.matcher(password).matches()){
+            return "Valid";
+        }
+        else
+            return "NotValid";
     }
 }

@@ -1,2 +1,2 @@
-com/User_Registration.java
- com.User_Registration
+com/User_RegistrationTest.java
+ com.User_RegistrationTest

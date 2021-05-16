@@ -30,4 +30,9 @@ public class User_RegistrationTest {
         User_Registration validation = new User_Registration();
         boolean result = validation.validateContact("91 8879876091");
     }
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        User_Registration validation = new User_Registration();
+        boolean result = validation.validatePassword("password");
+    }
 }

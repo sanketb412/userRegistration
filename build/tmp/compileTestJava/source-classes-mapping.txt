@@ -1,2 +1,4 @@
 com/User_RegistrationTest.java
  com.User_RegistrationTest
+com/Multiple_EmailTest.java
+ com.Multiple_EmailTest

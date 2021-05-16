@@ -9,6 +9,7 @@ public class User_Registration {
     private static final String EMAIL_PATTERN = "^([a-zA-Z]{3,}([+_.-][a-z])*)+@[a-z]+.com[+.in]*$";
     private static final String CONTACT_NUMBER_PATTERN = "^[+91]{2}\\s{1}([789]{1}[0-9]{9})$";
     private static final String PASSWORD_PATTERN = "^((?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$&%]).{8,})$";
+    private static final String PARAMETRISED_EMAIL = "^([a-zA-Z]{3,}([+_.-]*[a-z]*[0-9]{1,}([0-9]{2,})*)*)+@[a-z]+.com{1,}[+.in]*[+.net]*[+.au]*$";
 
     public static void main(String[] args){
         System.out.println("..###..Welcome to User Registration Program..###..");
@@ -50,10 +51,13 @@ public class User_Registration {
 
     public String validatePassword(String password) {
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        if(pattern.matcher(password).matches()){
+        if (pattern.matcher(password).matches()) {
             return "Valid";
-        }
-        else
+        } else
             return "NotValid";
+    }
+    public boolean validateMultipleEmail(String MEmail ) {
+        Pattern pattern = Pattern.compile(PARAMETRISED_EMAIL);
+        return pattern.matcher(MEmail).matches();
     }
 }

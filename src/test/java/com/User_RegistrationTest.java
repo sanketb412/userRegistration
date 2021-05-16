@@ -33,6 +33,6 @@ public class User_RegistrationTest {
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue() {
         User_Registration validation = new User_Registration();
-        boolean result = validation.validatePassword("passWord");
+        boolean result = validation.validatePassword("passWord123");
     }
 }

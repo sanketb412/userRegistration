@@ -1,6 +1,5 @@
 package com;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class User_Registration {
@@ -11,53 +10,82 @@ public class User_Registration {
     private static final String PASSWORD_PATTERN = "^((?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$&%]).{8,})$";
     private static final String PARAMETRISED_EMAIL = "^([a-zA-Z]{3,}([+_.-]*[a-z]*[0-9]{1,}([0-9]{2,})*)*)+@[a-z]+.com{1,}[+.in]*[+.net]*[+.au]*$";
 
-    public static void main(String[] args){
-        System.out.println("..###..Welcome to User Registration Program..###..");
-    }
-    public String validateFirstName(String firstname) {
+    public String validateFirstName(String firstname) throws UserAnalysisException {
         Pattern pattern = Pattern.compile(FIRST_LAST_NAME_PATTERN);
-        if(pattern.matcher(firstname).matches()){
-            return "Valid";
+        try {
+            if (firstname.length() == 0) {
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Please Enter name");
+            }
+            else if (pattern.matcher(firstname).matches()) {
+                return "Valid";
+            } else
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_valid, "Please Enter valid name");
+        } catch (NullPointerException e) {
+            throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Enter valid name");
         }
-        else
-            return "NotValid";
     }
-    public String validateLastName(String lastname) {
+    public String validateLastName(String lastname) throws UserAnalysisException{
         Pattern pattern = Pattern.compile(FIRST_LAST_NAME_PATTERN);
-        if(pattern.matcher(lastname).matches()){
-            return "Valid";
+        try {
+            if (lastname.length() == 0) {
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Please Enter name");
+            }
+            else if(pattern.matcher(lastname).matches()){
+                return "Valid";
+            } else
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_valid, "Please Enter valid name");
+        } catch (NullPointerException e) {
+            throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Enter valid name");
         }
-        else
-            return "NotValid";
     }
 
-    public String validateEmail(String email) {
+    public String validateEmail(String email) throws UserAnalysisException{
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        if(pattern.matcher(email).matches()){
-            return "Valid";
+        try {
+            if (email.length() == 0) {
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Please Enter email");
+            }
+            else if(pattern.matcher(email).matches()){
+                return "Valid";
+            } else
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_valid, "Please Enter valid email");
+        } catch (NullPointerException e) {
+            throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Enter valid email");
         }
-        else
-            return "NotValid";
     }
 
-    public String validateContact(String contactnumber) {
+    public String validateContact(String contactnumber) throws UserAnalysisException {
         Pattern pattern = Pattern.compile(CONTACT_NUMBER_PATTERN);
-        if(pattern.matcher(contactnumber).matches()){
-            return "Valid";
+        try {
+            if (contactnumber.length() == 0) {
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Please Enter Contact_Number");
+            }
+            else if(pattern.matcher(contactnumber).matches()){
+                return "Valid";
+            } else
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_valid, "Please Enter valid Contact_Number");
+        } catch (NullPointerException e) {
+            throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Enter valid Contact_Number");
         }
-        else
-            return "NotValid";
     }
 
-    public String validatePassword(String password) {
+    public String validatePassword(String password) throws UserAnalysisException {
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        if (pattern.matcher(password).matches()) {
-            return "Valid";
-        } else
-            return "NotValid";
+        try {
+            if (password.length() == 0) {
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Please Enter Password");
+            }
+            else if (pattern.matcher(password).matches()) {
+                return "Valid";
+            } else
+                throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_valid, "Please Enter valid Password");
+        } catch (NullPointerException e) {
+            throw new UserAnalysisException(UserAnalysisException.ExceptionType.Entered_Empty, "Enter valid Password");
+        }
     }
-    public boolean validateMultipleEmail(String MEmail ) {
+
+    public boolean validateMultipleEmail(String Multiple) {
         Pattern pattern = Pattern.compile(PARAMETRISED_EMAIL);
-        return pattern.matcher(MEmail).matches();
+        return pattern.matcher(Multiple).matches();
     }
 }

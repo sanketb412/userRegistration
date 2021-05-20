@@ -5,3 +5,5 @@ com/UserAnalysisException.java
  com.UserAnalysisException$ExceptionType
 com/User_Registration.java
  com.User_Registration
+com/Check_ByLambda.java
+ com.Check_ByLambda
